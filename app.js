@@ -12,6 +12,8 @@ loadEventListeners();
 function loadEventListeners() {
     //add task event
     form.addEventListener('submit', addTask);
+    // remove task event
+    taskList.addEventListener('click', removeTask);
 }
 
 //Add Task
@@ -19,7 +21,6 @@ function addTask(e) {
     if(taskInput.value === '') {
         alert('Add a task');
     }
-
     // create a li element
     const li = document.createElement('li');
     //add a class
@@ -34,12 +35,9 @@ function addTask(e) {
     link.innerHTML = '<i class="fa fa-remove"></i>';
     // append the link to li
     li.appendChild(link);
-
     //append li to ul
     taskList.appendChild(li);
-
     //clear the input
     taskInput.value = '';
-
     e.preventDefault();
 }
